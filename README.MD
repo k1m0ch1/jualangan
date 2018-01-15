@@ -35,17 +35,24 @@ python run.py
 ### Referensi Gambar Aspect Ratio yang di perbolehkan oleh Instagram
 
 image aspect ratio max 4:5
+
 ex 
+
 1.91:1 Ratio – 1200 x 628
+
 2:3 Ratio – 800 x 1200 
+
 1080px in width by 1080px in height
+
 1080px in width by 1350px in height
+
 1080px in width by 566px in height
 
 refference untuk image aspect ratio : https://medium.com/@mikemurphyco/163-the-complete-guide-to-sizing-photos-videos-for-instagram-instagram-stories-71e089d5bd29
 
 ## Fitur Selanjutnya
 
+- Touch up Readme
 - Auto Like dari feed home
 - Auto follow untuk beberapa orang kategori
 - Auto comment dari salah satu akun setiap kali orang tersebut melakukan posting baru
