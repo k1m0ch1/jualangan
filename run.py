@@ -37,11 +37,12 @@ def upload(filename="", content=""):
 	if (api.login()):
 	    #api.getSelfUserFeed()  # get self user feed
 	    #print(api.LastJson)  # print last response JSON
-	    print("Login succes!")
+		photo_path = filename
+		caption = content
+		api.uploadPhoto(photo_path, caption=caption)
+		print "File Uploaded"
 	else:
 	    print("Can't login!")
-
-
 
 SENIN = os.getcwd() + "/batch/senin/"
 SELASA = os.getcwd() + "/batch/selasa/"
@@ -66,7 +67,7 @@ akhir = False
 while True:
 	if akhir == False:
 		print "[*] Gathering job for today (" + getDay() + ")"
-		
+
 	if getDay() == "senin":
 		HARIINI = SENIN
 	elif getDay() == "selasa":
@@ -123,7 +124,9 @@ while True:
 		ws.sort(key=int)
 		#print lf
 		#print wss
-
+		print txt
+		print files
+		a=1
 		for xy in wss :
 			waktuA = datetime.datetime.strptime(str(xy), "%H:%M")
 			waktuB = datetime.datetime.strptime(datetime.datetime.now().strftime("%H:%M"), "%H:%M")
@@ -138,11 +141,13 @@ while True:
 			if int(waktuAkhir.seconds) <= int(waktuAwal.seconds) :
 				print "[*] Batch " + xy + " can't be prosessed because its already past time"
 			else:
-				print "[*] Next batch is " + xy + " will be posted file " 
+				print "[*] Next batch is " + xy + " will be posted file " + str(HARIINI + files[a*2-2])
 				sleep(int(waktu)-10)
 				print "[*] Batch " + xy + " will be posted 10 second from now"
 				sleep(10)
+				upload(HARIINI + files[a*2-2], txt[a-1])
 				#disini posting ke instagram
+			a = a +1
 
 		akhir = True
 

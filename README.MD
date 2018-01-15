@@ -18,9 +18,11 @@ python run.py
 
 format batch file
 
-angka.jpg / angka.png 
+angka.jpg
 angka.lol
 
 format lol file
 line pertama harus waktu
 text
+
+image must be jpg, with aspect ratio 4:5
