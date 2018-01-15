@@ -83,28 +83,62 @@ while True:
 	if file_count > 0:
 		print "[*] Gathering job for today"
 		a=1
+		ws = []
+		wss = []
+		lf = []	
+		txt = []
 		for f in range(0, file_count/2):
 			try:
 				formatfile = HARIINI + str(a) + ".lol"
 				fi = open(formatfile, "r")
 			except OSError as e:
-				print "File " + formatfile + " Ga ada pak!"
-			
-			lf = []
+				print "File " + formatfile + " Ga ada pak!"				
 
+			uy = 1
 			for xx in fi:
-				lf.append(xx.rstrip())
+				if uy == 1:
+					lf.append(xx.rstrip())
+					uy = uy + 1
+				else:
+					txt.append(xx.rstrip())
+					uy=1
 
-			print lf[0]
+			for uye in lf:
+				waktuA = datetime.datetime.strptime(str(uye), "%H:%M")
+				waktuB = datetime.datetime.strptime(datetime.datetime.now().strftime("%H:%M"), "%H:%M")
+				waktu = waktuA - waktuB
+				waktu = waktu.seconds
+				waktuS = waktuB + datetime.timedelta(seconds=waktu)
+				waktuS = waktuS.strftime("%H:%M")
+				wss.append(waktuS)
+				ws.append(int(waktu))
 
-			waktuA = datetime.datetime.strptime(str(lf[0]), "%H:%M")
+			a=a+1
+
+		wss = sorted(wss)
+		ws.sort(key=int)
+		#print lf
+		print wss
+
+		for xy in wss :
+			waktuA = datetime.datetime.strptime(str(xy), "%H:%M")
 			waktuB = datetime.datetime.strptime(datetime.datetime.now().strftime("%H:%M"), "%H:%M")
 			waktu = waktuA - waktuB
 			waktu = waktu.seconds
+			if waktu >= 86400 :
+				print "[*] Batch " + xy + " can't be prosessed because its already past time"
+			else:
+				print "[*] Next batch is " + xy + " will be posted file " 
+				sleep(int(waktu)-10)
+				print "[*] Batch " + xy + " will be posted 10 second from now"
+				sleep(10)
+				#disini posting ke instagram
 
-			a=a+1
-		print "[*] Waiting for the next job at " + lf[0]
-		sleep(int(waktu))
+
+		# print ws
+		# print wss
+		# print "[*] Waiting for the next job at " + lf[0]
+		# sleep(int(waktu))
 	else:
 		print "[*] No job today, idle mode"
 		sleep(60)
