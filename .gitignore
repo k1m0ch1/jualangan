@@ -1,0 +1,8 @@
+.env
+batch/senin/*
+batch/selasa/*
+batch/rabu/*
+batch/kamis/*
+batch/jumat/*
+batch/sabtu/*
+batch/minggu/*
