@@ -23,6 +23,6 @@ angka.lol
 
 format lol file
 line pertama harus waktu
-text
+line kedua dilanjuti dengan text content
 
 image must be jpg, with aspect ratio 4:5
