@@ -8,7 +8,9 @@ pip
 
 Installation :
 
-pip install -r r.txt
+1. pip install -r r.txt
+2. bikin folder bersebelahan dengan run.py "batch"
+3. bikin folder "senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu" didalam folder batch
 
 Run :
 
