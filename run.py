@@ -124,8 +124,8 @@ while True:
 		ws.sort(key=int)
 		#print lf
 		#print wss
-		print txt
-		print files
+		#print txt
+		#print files
 		a=1
 		for xy in wss :
 			waktuA = datetime.datetime.strptime(str(xy), "%H:%M")
