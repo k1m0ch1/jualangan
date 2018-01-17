@@ -5,6 +5,9 @@ import datetime
 import platform 
 from time import sleep
 import moviepy
+import json
+from pygments import highlight, lexers, formatters
+
 
 load_dotenv(find_dotenv(), override=True)
 USERNAME = os.environ.get("USERNAME")
@@ -43,6 +46,15 @@ def upload(filename="", content=""):
 		print "File Uploaded"
 	else:
 	    print("Can't login!")
+
+api = InstagramAPI(USERNAME, PASSWORD)
+if api.login():
+	api.getSelfUserFeed(1, 1495640589)
+	#api.mediaInfo("BUlxQgtjEUFS9FH-txgE2NkJb_CsJbiW6JqwO40")
+	jSon = api.LastJson
+	formatted_json = json.dumps(jSon, indent=4)
+	colorful_json = highlight(unicode(formatted_json, 'UTF-8'), lexers.JsonLexer(), formatters.TerminalFormatter())
+	print(colorful_json)
 
 SENIN = os.getcwd() + "/batch/senin/"
 SELASA = os.getcwd() + "/batch/selasa/"
