@@ -47,14 +47,14 @@ def upload(filename="", content=""):
 	else:
 	    print("Can't login!")
 
-api = InstagramAPI(USERNAME, PASSWORD)
-if api.login():
-	api.getSelfUserFeed(1, 1495640589)
-	#api.mediaInfo("BUlxQgtjEUFS9FH-txgE2NkJb_CsJbiW6JqwO40")
-	jSon = api.LastJson
-	formatted_json = json.dumps(jSon, indent=4)
-	colorful_json = highlight(unicode(formatted_json, 'UTF-8'), lexers.JsonLexer(), formatters.TerminalFormatter())
-	print(colorful_json)
+# api = InstagramAPI(USERNAME, PASSWORD)
+# if api.login():
+# 	api.getSelfUserFeed(1, 1495640589)
+# 	#api.mediaInfo("BUlxQgtjEUFS9FH-txgE2NkJb_CsJbiW6JqwO40")
+# 	jSon = api.LastJson
+# 	formatted_json = json.dumps(jSon, indent=4)
+# 	colorful_json = highlight(unicode(formatted_json, 'UTF-8'), lexers.JsonLexer(), formatters.TerminalFormatter())
+# 	print(colorful_json)
 
 SENIN = os.getcwd() + "/batch/senin/"
 SELASA = os.getcwd() + "/batch/selasa/"
@@ -137,7 +137,8 @@ while True:
 		#print lf
 		#print wss
 		#print txt
-		#print files
+		files.sort(key=lambda f: int(filter(str.isdigit, f)))
+		print files
 		a=1
 		for xy in wss :
 			waktuA = datetime.datetime.strptime(str(xy), "%H:%M")
