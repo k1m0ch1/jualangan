@@ -56,3 +56,4 @@ refference untuk image aspect ratio : https://medium.com/@mikemurphyco/163-the-c
 - Auto Like dari feed home
 - Auto follow untuk beberapa orang kategori
 - Auto comment dari salah satu akun setiap kali orang tersebut melakukan posting baru
+- Auto delete posting lama
