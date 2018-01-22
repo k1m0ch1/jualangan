@@ -2,6 +2,7 @@ from InstagramAPI import InstagramAPI
 import datetime
 import time
 from time import sleep
+from random import randint
 
 def upload(api="",filename="", content=""):
 	photo_path = filename
@@ -38,6 +39,7 @@ def delete_from_last(api="", BANYAK=0):
 	akhir = str(datetime.datetime.fromtimestamp(int(akhir)).strftime('%d %B %Y %H:%M:%S'))
 	print "[*] Dari " + str(ljSon) + " post, akan hapus " + str(BANYAK) + " post terakhir dimulai tanggal " + awal + " s/d " + akhir
 	for x in range(ajSon, ljSon):
+		sleep(int(randint(5, 15)))
 		media_id = str(jSon[x]['caption']['media_id'])
 		tanggal = jSon[x]['caption']['created_at']
 		bTanggal = str(datetime.datetime.fromtimestamp(int(tanggal)).strftime('%d %B %Y %H:%M:%S'))
