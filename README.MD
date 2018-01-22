@@ -17,13 +17,13 @@ Alternatif tools untuk jualan di instagram, tools untuk auto upload gambar ke in
 ```python
 	- run.py
 	- batch
-		|-senin
-		|-selasa
-		|-rabu
-		|-kamis
-		|-jumat
-		|-sabtu
-		|-minggu
+	|-senin
+	|-selasa
+	|-rabu
+	|-kamis
+	|-jumat
+	|-sabtu
+	|-minggu
 ```
 
 ### Format ENV file
@@ -46,13 +46,44 @@ IDLE adalah waktu standby sebelum cek jadwal
 - pada baris pertama gunakan waktu yang akan di post pada hari tersebut
 - dan barus kedua adalah text yang akan di sertakan di gambar
 
-### Penggunaan Scheduling file upload
+Contoh Listing Direktori :
+
+```python
+	- run.py
+	- batch
+	|-senin
+	   |- 1.jpg
+	   |- 1.lol
+	   |- 2.jpg
+	   |- 2.lol
+	|-selasa
+	|-rabu
+	|-kamis
+	|-jumat
+	|-sabtu
+	   |- 1.jpg
+	   |- 1.lol
+	|-minggu
+```
+
+Contoh Format dari lol file :
+
+```python
+10:08
+mau tas keren ini ? muat laptop14 inch, anti air, high capacity, cocok untuk dailly order/tanya product ? whatsapp 080808080808 (RESELLER & DROPSHIP WELLCOME) : MJOLNIR NAVY 239.OOO (free ongkir ) (PENGIRIMAN BANDUNG) order bisa langsung hubungi
+```
+
+### Penggunaan Penjadwalan file upload
 
 ```python
 python run.py
 ```
 
 ### Penggunaan Delete mass file
+
+Fungsinya adalah menghapus massal post instagram paling akhir dari belakang, sebanyak nilai yang di inputkan
+*note: fungsi ini akan ada delay setiap penghapusan post, untuk menghindari teridentifikasi spam oleh instagram
+**note: gunakan fungsi ini terpisah dengan fungsi penjadwalan 
 
 ```python
 python del.py banyakpost
