@@ -13,49 +13,24 @@ import insta
 load_dotenv(find_dotenv(), override=True)
 USERNAME = os.environ.get("USERNAME")
 PASSWORD = os.environ.get("PASSWORD")
+BANYAK_POST_HAPUS = os.environ.get("BANYAK_POST_HAPUS")
 LOGGEDIN = False
 
 print "[*] Trying to login with " + USERNAME
 ig = insta.login(USERNAME, PASSWORD)
 
 def development():
-	# api = InstagramAPI(USERNAME, PASSWORD)
-	# if api.login():
-	# 	api.getSelfUserFeed()
-		#api.deleteMedia("1694574687916317986")
-		#api.mediaInfo("BUlxQgtjEUFS9FH-txgE2NkJb_CsJbiW6JqwO40")
-		#jSon = str(api.LastJson)
-		# formatted_json = json.dumps(jSon, indent=4)
-		# colorful_json = highlight(unicode(formatted_json, 'UTF-8'), lexers.JsonLexer(), formatters.TerminalFormatter())
-		# print(colorful_json)
-		#jSon = json.dumps(jSon, indent=4)
-		#print jSon
-		# for items in jSon.values()[3]:
-		# 	print items.values()
-		# a, b = zip(*jSon.items())
-		# print b
-		# jSon = namedtuple("jSon", jSon.keys())(*jSon.values())
-		# items = []
-		# caption = []
-		# for getitems in jSon.items:
-		# 	items.append(namedtuple("items", getitems.keys())(*getitems.values()))
-		# jSon = json.loads(jSon)
-
-		# for items in jSOn['items']:
-		# 	print items
-
-		# for getcaption in items:
-		# 	for ggetcaption in getcaption.caption:
-		# 		print ggetcaption.values()
-				#caption.append(namedtuple("caption", ggetcaption.keys())(*ggetcaption.values()))
-			#print getcaption.caption.keys()
-			#caption.append(namedtuple("caption", getcaption.caption.keys())(*getcaption.caption.values()))
-
-		# getcaption = namedtuple("hasil", getcaption.caption.keys())(*getcaption.caption.values())
-		# print getcaption.created_at
+	jSon = api.getTotalSelfUserFeed()
+	ljSon = len(jSon)
+	ajSon = int(ljSon) - BANYAK_POST_HAPUS
+	
+	for x in range(ajSon, ljSon):
+		media_id = str(jSon[x-1]['caption']['media_id'])
+		api.deleteMedia(media_id)
 	return ""
 
 #development()
+#insta.delete_from_last(ig, BANYAK_POST_HAPUS)
 
 SENIN = os.getcwd() + "/batch/senin/"
 SELASA = os.getcwd() + "/batch/selasa/"

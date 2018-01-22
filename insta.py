@@ -1,4 +1,7 @@
 from InstagramAPI import InstagramAPI
+import datetime
+import time
+from time import sleep
 
 def upload(api="",filename="", content=""):
 	photo_path = filename
@@ -16,3 +19,31 @@ def login(USERNAME="", PASSWORD=""):
 		print "[*] Can't Login, check again username dan password"
 
 	return api
+
+def delete_from_last(api="", BANYAK=0):
+	print "[*] Processing to gather data profile ( this will took a long time and don't close this process )"
+	mulai = time.time()
+	jSon = api.getTotalSelfUserFeed()
+	beres = time.time()
+	lama = beres - mulai
+	lama = int(lama)
+	print "[*] it tooks " + str(lama) + " second to processing get all sef user feed"
+	print "[*] Gathering data finished"
+	sleep(3)
+	ljSon = len(jSon)
+	ajSon = int(ljSon) - int(BANYAK)
+	awal = jSon[ljSon-1]['caption']['created_at']
+	awal = str(datetime.datetime.fromtimestamp(int(awal)).strftime('%d %B %Y %H:%M:%S'))
+	akhir = jSon[ajSon-1]['caption']['created_at']
+	akhir = str(datetime.datetime.fromtimestamp(int(akhir)).strftime('%d %B %Y %H:%M:%S'))
+	print "[*] Dari " + str(ljSon) + " post, akan hapus " + str(BANYAK) + " post terakhir dimulai tanggal " + awal + " s/d " + akhir
+	for x in range(ajSon, ljSon):
+		media_id = str(jSon[x]['caption']['media_id'])
+		tanggal = jSon[x]['caption']['created_at']
+		bTanggal = str(datetime.datetime.fromtimestamp(int(tanggal)).strftime('%d %B %Y %H:%M:%S'))
+		if api.deleteMedia(media_id) :
+			print "[*][" + str(media_id) + "] Delete post from " + bTanggal + " Success "
+		else:
+			print "[*][" + str(media_id) + "] Delete post from " + bTanggal + " Fail "
+
+	print "[*] Delete Success"
