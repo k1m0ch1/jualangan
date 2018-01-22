@@ -28,7 +28,7 @@ def delete_from_last(api="", BANYAK=0):
 	beres = time.time()
 	lama = beres - mulai
 	lama = int(lama)
-	print "[*] it tooks " + str(lama) + " second to processing get all sef user feed"
+	print "[*] It tooks " + str(lama) + " second to processing gathering all user feed"
 	print "[*] Gathering data finished"
 	sleep(3)
 	ljSon = len(jSon)
@@ -39,7 +39,7 @@ def delete_from_last(api="", BANYAK=0):
 	akhir = str(datetime.datetime.fromtimestamp(int(akhir)).strftime('%d %B %Y %H:%M:%S'))
 	print "[*] Dari " + str(ljSon) + " post, akan hapus " + str(BANYAK) + " post terakhir dimulai tanggal " + awal + " s/d " + akhir
 	for x in range(ajSon, ljSon):
-		sleep(int(randint(5, 15)))
+		sleep(int(randint(5, 15))) #this random to prefent spam detection, tested for 100 request.
 		media_id = str(jSon[x]['caption']['media_id'])
 		tanggal = jSon[x]['caption']['created_at']
 		bTanggal = str(datetime.datetime.fromtimestamp(int(tanggal)).strftime('%d %B %Y %H:%M:%S'))
