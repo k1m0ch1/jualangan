@@ -13,10 +13,30 @@ Alternatif tools untuk jualan di instagram, tools untuk auto upload gambar ke in
 1. pip install -r r.txt
 2. bikin folder bersebelahan dengan run.py "batch"
 3. bikin folder "senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu" didalam folder batch
-4. buat file baru .env 
-5. file env dengan text USERNAME = diisi dengan username instagram
-6. PASSWORD = diisi dengan password instagram
-7. IDLE = diisi dengan waktu detik dimana waktu idle pada saat akan melakukan batch selanjutnya
+
+```python
+	- run.py
+	- batch
+		|-senin
+		|-selasa
+		|-rabu
+		|-kamis
+		|-jumat
+		|-sabtu
+		|-minggu
+```
+
+### Format ENV file
+
+```python
+USERNAME = 
+PASSWORD = 
+IDLE = 
+```
+
+USERNAME diisi dengan username instagram
+PASSWORD diisi dengan password instagram
+IDLE adalah waktu standby sebelum cek jadwal
 
 ### Konfigurasi jadwal
 
@@ -26,10 +46,16 @@ Alternatif tools untuk jualan di instagram, tools untuk auto upload gambar ke in
 - pada baris pertama gunakan waktu yang akan di post pada hari tersebut
 - dan barus kedua adalah text yang akan di sertakan di gambar
 
-### Penggunaan
+### Penggunaan Scheduling file upload
 
 ```python
 python run.py
+```
+
+### Penggunaan Delete mass file
+
+```python
+python del.py banyakpost
 ```
 
 ### Referensi Gambar Aspect Ratio yang di perbolehkan oleh Instagram
