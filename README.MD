@@ -68,7 +68,7 @@ Contoh Listing Direktori :
 
 Contoh Format dari lol file :
 
-```python
+```text
 10:08
 mau tas keren ini ? muat laptop14 inch, anti air, high capacity, cocok untuk dailly order/tanya product ? whatsapp 080808080808 (RESELLER & DROPSHIP WELLCOME) : MJOLNIR NAVY 239.OOO (free ongkir ) (PENGIRIMAN BANDUNG) order bisa langsung hubungi
 ```
@@ -113,4 +113,4 @@ refference untuk image aspect ratio : https://medium.com/@mikemurphyco/163-the-c
 - Auto Like dari feed home
 - Auto follow untuk beberapa orang kategori
 - Auto comment dari salah satu akun setiap kali orang tersebut melakukan posting baru
-- Auto delete posting lama
+[DONE] Auto delete posting lama
