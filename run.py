@@ -18,45 +18,6 @@ LOGGEDIN = False
 print "[*] Trying to login with " + USERNAME
 ig = insta.login(USERNAME, PASSWORD)
 
-def development():
-	# api = InstagramAPI(USERNAME, PASSWORD)
-	# if api.login():
-	# 	api.getSelfUserFeed()
-		#api.deleteMedia("1694574687916317986")
-		#api.mediaInfo("BUlxQgtjEUFS9FH-txgE2NkJb_CsJbiW6JqwO40")
-		#jSon = str(api.LastJson)
-		# formatted_json = json.dumps(jSon, indent=4)
-		# colorful_json = highlight(unicode(formatted_json, 'UTF-8'), lexers.JsonLexer(), formatters.TerminalFormatter())
-		# print(colorful_json)
-		#jSon = json.dumps(jSon, indent=4)
-		#print jSon
-		# for items in jSon.values()[3]:
-		# 	print items.values()
-		# a, b = zip(*jSon.items())
-		# print b
-		# jSon = namedtuple("jSon", jSon.keys())(*jSon.values())
-		# items = []
-		# caption = []
-		# for getitems in jSon.items:
-		# 	items.append(namedtuple("items", getitems.keys())(*getitems.values()))
-		# jSon = json.loads(jSon)
-
-		# for items in jSOn['items']:
-		# 	print items
-
-		# for getcaption in items:
-		# 	for ggetcaption in getcaption.caption:
-		# 		print ggetcaption.values()
-				#caption.append(namedtuple("caption", ggetcaption.keys())(*ggetcaption.values()))
-			#print getcaption.caption.keys()
-			#caption.append(namedtuple("caption", getcaption.caption.keys())(*getcaption.caption.values()))
-
-		# getcaption = namedtuple("hasil", getcaption.caption.keys())(*getcaption.caption.values())
-		# print getcaption.created_at
-	return ""
-
-#development()
-
 SENIN = os.getcwd() + "/batch/senin/"
 SELASA = os.getcwd() + "/batch/selasa/"
 RABU = os.getcwd() + "/batch/rabu/"
