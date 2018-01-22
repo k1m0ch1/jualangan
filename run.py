@@ -1,4 +1,3 @@
-from InstagramAPI import InstagramAPI
 from dotenv import load_dotenv, find_dotenv
 import os, os.path
 import datetime
@@ -8,82 +7,55 @@ import moviepy
 import json
 from pygments import highlight, lexers, formatters
 from collections import namedtuple
-
+import day
+import insta
 
 load_dotenv(find_dotenv(), override=True)
 USERNAME = os.environ.get("USERNAME")
 PASSWORD = os.environ.get("PASSWORD")
+LOGGEDIN = False
 
-def getDay():
-	now = datetime.datetime.now()
-	hari = int(now.strftime("%w"))
-	if hari == 0 :
-		hari = "minggu"
-	elif hari == 1 :
-		hari = "senin"
-	elif hari == 2 :
-		hari = "selasa"
-	elif hari == 3 : 
-		hari = "rabu"
-	elif hari == 4 :
-		hari = "kamis"
-	elif hari == 5 :
-		hari = "jumat"
-	elif hari == 6 :
-		hari = "sabtu"
-	else:
-		hari = "undefined"
-	return hari
+print "[*] Trying to login with " + USERNAME
+ig = insta.login(USERNAME, PASSWORD)
 
-def upload(filename="", content=""):
-	api = InstagramAPI(USERNAME, PASSWORD)
+def development():
+	# api = InstagramAPI(USERNAME, PASSWORD)
+	# if api.login():
+	# 	api.getSelfUserFeed()
+		#api.deleteMedia("1694574687916317986")
+		#api.mediaInfo("BUlxQgtjEUFS9FH-txgE2NkJb_CsJbiW6JqwO40")
+		#jSon = str(api.LastJson)
+		# formatted_json = json.dumps(jSon, indent=4)
+		# colorful_json = highlight(unicode(formatted_json, 'UTF-8'), lexers.JsonLexer(), formatters.TerminalFormatter())
+		# print(colorful_json)
+		#jSon = json.dumps(jSon, indent=4)
+		#print jSon
+		# for items in jSon.values()[3]:
+		# 	print items.values()
+		# a, b = zip(*jSon.items())
+		# print b
+		# jSon = namedtuple("jSon", jSon.keys())(*jSon.values())
+		# items = []
+		# caption = []
+		# for getitems in jSon.items:
+		# 	items.append(namedtuple("items", getitems.keys())(*getitems.values()))
+		# jSon = json.loads(jSon)
 
-	if (api.login()):
-	    #api.getSelfUserFeed()  # get self user feed
-	    #print(api.LastJson)  # print last response JSON
-		photo_path = filename
-		caption = content
-		api.uploadPhoto(photo_path, caption=caption)
-		print "File Uploaded"
-	else:
-	    print("Can't login!")
+		# for items in jSOn['items']:
+		# 	print items
 
-api = InstagramAPI(USERNAME, PASSWORD)
-if api.login():
-	api.getSelfUserFeed()
-	#api.deleteMedia("1694574687916317986")
-	#api.mediaInfo("BUlxQgtjEUFS9FH-txgE2NkJb_CsJbiW6JqwO40")
-	jSon = str(api.LastJson)
-	# formatted_json = json.dumps(jSon, indent=4)
-	# colorful_json = highlight(unicode(formatted_json, 'UTF-8'), lexers.JsonLexer(), formatters.TerminalFormatter())
-	# print(colorful_json)
-	#jSon = json.dumps(jSon, indent=4)
-	#print jSon
-	# for items in jSon.values()[3]:
-	# 	print items.values()
-	# a, b = zip(*jSon.items())
-	# print b
-	# jSon = namedtuple("jSon", jSon.keys())(*jSon.values())
-	# items = []
-	# caption = []
-	# for getitems in jSon.items:
-	# 	items.append(namedtuple("items", getitems.keys())(*getitems.values()))
-	# jSon = json.loads(jSon)
+		# for getcaption in items:
+		# 	for ggetcaption in getcaption.caption:
+		# 		print ggetcaption.values()
+				#caption.append(namedtuple("caption", ggetcaption.keys())(*ggetcaption.values()))
+			#print getcaption.caption.keys()
+			#caption.append(namedtuple("caption", getcaption.caption.keys())(*getcaption.caption.values()))
 
-	# for items in jSOn['items']:
-	# 	print items
+		# getcaption = namedtuple("hasil", getcaption.caption.keys())(*getcaption.caption.values())
+		# print getcaption.created_at
+	return ""
 
-	# for getcaption in items:
-	# 	for ggetcaption in getcaption.caption:
-	# 		print ggetcaption.values()
-			#caption.append(namedtuple("caption", ggetcaption.keys())(*ggetcaption.values()))
-		#print getcaption.caption.keys()
-		#caption.append(namedtuple("caption", getcaption.caption.keys())(*getcaption.caption.values()))
-
-	# getcaption = namedtuple("hasil", getcaption.caption.keys())(*getcaption.caption.values())
-	# print getcaption.created_at
-
-
+#development()
 
 SENIN = os.getcwd() + "/batch/senin/"
 SELASA = os.getcwd() + "/batch/selasa/"
@@ -107,21 +79,21 @@ HARIINI = "KOSONG"
 akhir = False
 while True:
 	if akhir == False:
-		print "[*] Gathering job for today (" + getDay() + ")"
+		print "[*] Gathering job for today (" + day.getDay() + ")"
 
-	if getDay() == "senin":
+	if day.getDay() == "senin":
 		HARIINI = SENIN
-	elif getDay() == "selasa":
+	elif day.getDay() == "selasa":
 		HARIINI = SELASA
-	elif getDay() == "rabu":
+	elif day.getDay() == "rabu":
 		HARIINI = RABU
-	elif getDay() == "kamis":
+	elif day.getDay() == "kamis":
 		HARIINI = KAMIS
-	elif getDay() == "jumat":
+	elif day.getDay() == "jumat":
 		HARIINI = JUMAT
-	elif getDay() == "sabtu":
+	elif day.getDay() == "sabtu":
 		HARIINI = SABTU
-	elif getDay() == "minggu":
+	elif day.getDay() == "minggu":
 		HARIINI = MINGGU
 
 	path, dirs, files = os.walk(HARIINI).next()
@@ -138,7 +110,7 @@ while True:
 				formatfile = HARIINI + str(a) + ".lol"
 				fi = open(formatfile, "r")
 			except OSError as e:
-				print "File " + formatfile + " Ga ada pak!"				
+				print "[*] File " + formatfile + " Ga ada pak!"				
 
 			uy = 1
 			for xx in fi:
@@ -187,7 +159,7 @@ while True:
 				sleep(int(waktu)-10)
 				print "[*] Batch " + xy + " will be posted 10 second from now"
 				sleep(10)
-				upload(HARIINI + files[a*2-2], txt[a-1])
+				insta.upload(ig, HARIINI + files[a*2-2], txt[a-1])
 				#disini posting ke instagram
 			a = a +1
 

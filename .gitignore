@@ -6,3 +6,4 @@ batch/kamis/*
 batch/jumat/*
 batch/sabtu/*
 batch/minggu/*
+*.pyc
