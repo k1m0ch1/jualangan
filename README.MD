@@ -17,13 +17,13 @@ Alternatif tools untuk jualan di instagram, tools untuk auto upload gambar ke in
 ```python
 	- run.py
 	- batch
-	|-senin
-	|-selasa
-	|-rabu
-	|-kamis
-	|-jumat
-	|-sabtu
-	|-minggu
+	   |-senin
+	   |-selasa
+	   |-rabu
+	   |-kamis
+	   |-jumat
+	   |-sabtu
+	   |-minggu
 ```
 
 ### Format ENV file
