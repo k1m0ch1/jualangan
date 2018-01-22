@@ -13,6 +13,7 @@ import insta
 load_dotenv(find_dotenv(), override=True)
 USERNAME = os.environ.get("USERNAME")
 PASSWORD = os.environ.get("PASSWORD")
+BANYAK_POST_HAPUS = os.environ.get("BANYAK_POST_HAPUS")
 LOGGEDIN = False
 
 print "[*] Trying to login with " + USERNAME
