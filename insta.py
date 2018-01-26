@@ -31,7 +31,7 @@ def delete_from_last(api="", BANYAK=0):
 	print "[*] It tooks " + str(lama) + " second to processing gathering all user feed"
 	print "[*] Gathering data finished"
 	sleep(3)
-	ljSon = len(jSon)
+	ljSon = len(jSon)-1
 	ajSon = int(ljSon) - int(BANYAK)
 	awal = jSon[ljSon-1]['caption']['created_at']
 	awal = str(datetime.datetime.fromtimestamp(int(awal)).strftime('%d %B %Y %H:%M:%S'))
