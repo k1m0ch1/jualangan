@@ -110,7 +110,11 @@ refference untuk image aspect ratio : https://medium.com/@mikemurphyco/163-the-c
 ## Fitur Selanjutnya
 
 - Touch up Readme
-- Auto Like dari feed home
-- Auto follow untuk beberapa orang kategori
+- Auto Like dari feed home [code=GBLK]
+- GBLK confuse spam filter, Auto like ini bakal dipasang di si belegug, pada saat si belegug ga ada kerjaan, dia bakal cek feed pertama dan selain post dia, dia bakal like, lalu dia bakal cek lagi kerjaan, kalo ga ada kerjaan lagi, dia bakal like post ke dua.
+- Auto follow 
 - Auto comment dari salah satu akun setiap kali orang tersebut melakukan posting baru
+- Mantengin salah satu akun, cek salah 5 post terbaru nya kalo commentnya lebih dari 100 biji posting auto comment [code=CCD]
+- CCD confuse spam filter, comment pertama ga langsung di post, next comment ada delay (1-15 detik)
+- Mantengin 
 [DONE] Auto delete posting lama
