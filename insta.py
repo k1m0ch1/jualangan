@@ -1,8 +1,16 @@
-from InstagramAPI import InstagramAPI
+#from InstagramAPI import InstagramAPI
+from dotenv import load_dotenv, find_dotenv
 import datetime
 import time
 from time import sleep
 from random import randint
+import sys
+
+load_dotenv(find_dotenv(), override=True)
+CURRENT_FOLDER = os.environ.get("CURRENT_FOLDER")
+sys.path.insert(0, CURRENT_FOLDER + "env\\lib\\")
+
+from instagramAPI import InstagramAPI
 
 def upload(api="",filename="", content=""):
 	photo_path = filename
@@ -49,3 +57,9 @@ def delete_from_last(api="", BANYAK=0):
 			print "[*][" + str(media_id) + "] Delete post from " + bTanggal + " Fail "
 
 	print "[*] Delete Success"
+
+def getLatestNotif(api=None):
+	getRecent = api.getRecentActivity()
+	if getRecent :
+		jSon = api.LastJson
+
